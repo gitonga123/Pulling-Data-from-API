@@ -1,0 +1,15 @@
+		$url = "http://test.hiskenya.org/api/users.json?paging=false";
+		$username = "bootcamp2016";
+		$password = "Bootcamp2016";
+		$ch = curl_init($url);
+	
+		curl_setopt($ch, CURLOPT_USERPWD, "$username:$password");
+		curl_setopt($ch, CURLOPT_TIMEOUT, 30);
+		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT,30);
+		
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		
+		$data = curl_exec($ch);
+		curl_close($ch);	
+		
+		$result = json_decode($data, true);
